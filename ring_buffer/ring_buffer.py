@@ -17,9 +17,8 @@ class RingBuffer:
     def get(self):
         # Note:  This is the only [] allowed
         list_buffer_contents = []
-
-        # TODO: Your code here
-
+        if len(self.storage) >= 1:
+            list_buffer_contents.append(self.storage.head.value)
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
