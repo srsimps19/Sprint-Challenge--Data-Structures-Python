@@ -22,9 +22,12 @@ class RingBuffer:
                 self.current = self.storage.tail
 
     def get(self):
+        dll = self.storage
         list_buffer_contents = []
-        if len(self.storage) > 0:
-            list_buffer_contents.append(self.storage.remove_from_head())
+        while self.current != None:
+            list_buffer_contents.append(self.current.value)
+            if self.current:
+                self.current = self.current.next
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
